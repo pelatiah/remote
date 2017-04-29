@@ -1,0 +1,17 @@
+{% extends 'i_remote/base.html' %}
+
+{% block content %}
+    <h2>Remote Training for Student</h2>
+    <hr>
+    {% for design_stud in design_stud %}
+        <div class="post">
+            <div class="date">
+                <p></p>
+            </div>
+            <h3>{{ design_stud.title_stud }}</h3>
+            <p>{{ design_stud.detail_specification|linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'form_student_training' %}">Click here to register</a>
+        </div>
+    {% endfor %}
+    <h4><a href=""></a> Click here for training requirement</h4>
+{% endblock %}

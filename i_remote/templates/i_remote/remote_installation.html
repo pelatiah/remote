@@ -1,0 +1,14 @@
+{% extends 'i_remote/base.html' %}
+
+{% block content %}
+    {% for remote_install in remote_install %}
+        <div class="post">
+            <div class="date">
+                <p></p>
+            </div>
+            <h2>{{ remote_install.title_install }}</h2>
+            <p>{{ remote_install.detail_specification|linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'form_installation' %}">Click to continue</a>
+        </div>
+    {% endfor %}
+{% endblock %}

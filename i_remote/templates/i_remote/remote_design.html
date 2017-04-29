@@ -1,0 +1,21 @@
+{% extends 'i_remote/base.html' %}
+
+{% block content %}
+    <h2>Remote Design</h2>
+    {% for remote_des in remote_des %}
+        <div class="post">
+            <div class="date">
+                <p></p>
+            </div>
+            <h3>{{ remote_des.title_remote }}</h3>
+            <p>{{ remote_des.detail_specification|linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'form_design_prof' %}">Click to continue</a>
+        </div>
+    {% endfor %}
+
+    {% for design_com in design_com %}
+        <h3><a href="">{{ design_com.title }}</a></h3>
+        <p>{{ design_com.preview|linebreaksbr }}</p>
+        <a class="btn btn-default" href="{% url 'form_design_self' %}">Click to continue</a>
+    {% endfor %}
+{% endblock %}

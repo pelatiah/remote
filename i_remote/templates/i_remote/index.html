@@ -1,0 +1,34 @@
+{% extends 'i_remote/base.html' %}
+
+{% block content %}
+    {% for design in design %}
+        <div class="post">
+            <div class="date">
+                <p></p>
+            </div>
+            <h3><a href="{% url 'training_professional' %}">{{ design.title }}</a></h3>
+            <p>{{ design.preview|linebreaksbr }}</p>
+        </div>
+    {% endfor %}
+
+    {% for design_student in design_student %}
+        <h3><a href="{% url 'training_student' %}">{{ design_student.title_student }}</a></h3>
+        <p>{{ design_student.preview_student|linebreaksbr }}</p>
+    {% endfor %}
+
+    <hr>
+
+    {% for remote_design in remote_design %}
+        <h3><a href="{% url 'remote_design' %}">{{ remote_design.title }}</a></h3>
+        <p>{{ remote_design.preview|linebreaksbr }}</p>
+    {% endfor %}
+
+    <hr>
+
+    {% for remote_installation in remote_installation %}
+        <h3><a href="{% url 'remote_installation' %}">{{ remote_installation.title }}</a></h3>
+        <p>{{ remote_installation.preview|linebreaksbr }}</p>
+    {% endfor %}
+
+{% endblock content %}
+

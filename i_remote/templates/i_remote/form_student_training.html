@@ -1,0 +1,13 @@
+{% extends 'i_remote/base.html' %}
+
+
+{% block content %}
+    <h2> Student Registration Form</h2>
+    <hr>
+    {% if user.is_authenticated %}
+        <form method="POST" class="post-form">{% csrf_token %}
+            {{ form.as_p }}
+            <a type="submit" class="save btn btn-default" href="{% url 'thank_you' %}">Summit</a>
+        </form>
+    {% endif %}
+{% endblock %}
