@@ -11,7 +11,11 @@ body {
 .page-header {
     background-color: rgba(145, 191, 8, 0.2);
     padding: 5px 20px 5px 5px;
+}
 
+.footer-header {
+    background-color: rgba(145, 191, 8, 0.2);
+    padding: 5px 20px 5px 5px;
 }
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
@@ -46,6 +50,10 @@ h1, h2, h2 a, h3, h4 {
     float: right;
     font-size: 26pt;
     margin-right: 20px;
+}
+
+.teams {
+    float: right;
 }
 
 .top-menu:hover{

@@ -28,6 +28,7 @@
     {% for remote_installation in remote_installation %}
         <h3><a href="{% url 'remote_installation' %}">{{ remote_installation.title }}</a></h3>
         <p>{{ remote_installation.preview|linebreaksbr }}</p>
+        <hr>
     {% endfor %}
 
 {% endblock content %}

@@ -191,12 +191,12 @@ REQUIREMENT = (
 
 class FormUse(models.Model):
     author = models.ForeignKey('auth.User')
-    title = models.CharField(max_length=200)
-    first_name = models.CharField(max_length=200)
-    last_name = models.CharField(max_length=200)
-    company = models.CharField(max_length=200)
-    email = models.EmailField(max_length=200)
-    software = models.CharField(max_length=3, choices=SOFTWARE_LIST)
+    title = models.CharField(max_length=200, unique=True)
+    first_name = models.CharField(max_length=200, unique=True)
+    last_name = models.CharField(max_length=200, unique=True)
+    company = models.CharField(max_length=200, unique=True)
+    email = models.EmailField(max_length=200, unique=True)
+    software = models.CharField(max_length=3, choices=SOFTWARE_LIST, unique=True)
     training_duration_in_weeks = models.CharField(max_length=2)
     number_of_trainee = models.CharField(max_length=2)
     school_name = models.CharField(max_length=200)

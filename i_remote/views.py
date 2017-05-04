@@ -3,6 +3,9 @@ from .models import Design, DesignProfessional, TrainingStudent, DesignStudent,R
 from .models import RemoteInstallation, RemoteInstallationTwo, RemoteDesignTwo, DesignSelfComputer, DesignSelfComputerTwo
 from django.utils import timezone
 from .forms import FormProfessiona, FormStudent, FormDesignProf, FormDesignself, FormInstallation
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+
 
 
 def index(request):
@@ -58,6 +61,24 @@ def form_installation(request):
 
 def thank_you(request):
     return render(request, 'i_remote/thank_you.html', {})
+
+def modification_page(request):
+    return render(request, 'i_remote/modification_page.html', {})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('index')
+    else:
+        form = UserCreationForm()
+    return render(request, 'signup.html', {'form': form})
 
 
 

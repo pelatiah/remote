@@ -6,9 +6,19 @@
             <div class="date">
                 <p></p>
             </div>
-            <h2>{{ remote_install.title_install }}</h2>
+            <h3>
+                {% if request.user.is_authenticated %}
+                    {{ remote_install.title_install }}
+                {% else %}
+                    <a href="{% url 'signup' %}">{{ remote_install.title_install }}</a>
+                {% endif %}
+            </h3>
             <p>{{ remote_install.detail_specification|linebreaksbr }}</p>
-        <a class="btn btn-default" href="{% url 'form_installation' %}">Click to continue</a>
+            {% if request.user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'form_installation' %}">{{ remote_install.title_install }} Form</a>
+            {% else %}
+                <a class="btn btn-default" href="{% url 'signup' %}">Click to continue</a>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}

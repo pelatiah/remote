@@ -7,7 +7,8 @@
     {% if user.is_authenticated %}
         <form method="POST" class="post-form">{% csrf_token %}
             {{ form.as_p }}
-            <a type="submit" class="save btn btn-default" href="{% url 'thank_you' %}">Summit</a>
+            <button type="submit" class="save btn btn-default" ><a href="{% url 'thank_you' %}">Summit</a></button>
         </form>
     {% endif %}
+    <hr>
 {% endblock %}

@@ -9,22 +9,30 @@
     </head>
 
     <body>
-        <div class="page">
-            <div class="page-header">
-            {% if user.is_authenticated %}
-                <a href=""class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            {% endif %}
-                <a href="{% url 'index' %}"><img src="static/images/Platiah.jpg" alt="Remote Tech"></a>
-            </div>
+            <div class="page">
+                <div class="page-header">
+                    {% if request.user.is_authenticated %}
+                        <a href="{% url 'logout' %}"class="top-menu"><h4>Sign out</h4></a>
+                    {% else %}
+                        <a href="{% url 'login' %}"class="top-menu"><h4>Login</h4></a>
+                    {% endif %}
+                        <a href="{% url 'index' %}"><img src="static/images/Platiah.jpg" alt="Remote Tech"></a>
+                </div>
 
-            <div class="content container">
-                <div class="row">
-                    <div class="col-md-8">
-                        {% block content %}
-                        {% endblock %}
+                <div class="content container">
+                    <div class="row">
+                        <div class="col-md-8">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
                     </div>
                 </div>
+
             </div>
-        </div>
+        <footer class="footer-header">
+            <div><a href="{% url 'modification_page' %}">About Us</a></div>
+            <div class="teams"><a href="{% url 'modification_page' %}">Teams and condition </a></div>
+            <div><a href="{% url 'modification_page' %}">Contact Us</a></div>
+        </footer>
     </body>
 </html>

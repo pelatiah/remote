@@ -3,6 +3,8 @@ from . import views
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
+
+
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^remote_learning/professional/', views.training_professional, name='training_professional'),
@@ -15,8 +17,11 @@ urlpatterns = [
     url(r'^design/profectional/form$', views.form_design_prof, name='form_design_prof'),
     url(r'^design/self/form$', views.form_design_self, name='form_design_self'),
     url(r'^installation/form$', views.form_installation, name='form_installation'),
+    url(r'^modification/page/$', views.modification_page, name='modification_page'),
+
 
     url(r'^login/$', auth_views.login, name='login'),
-    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^logout/$', auth_views.logout, {'next_page': '/'}, name='logout'),
     url(r'^admin/', admin.site.urls),
+    url(r'^signup/$', views.signup, name='signup')
 ]
